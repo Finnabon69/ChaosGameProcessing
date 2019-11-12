@@ -4,14 +4,14 @@ int Iteration = 0;
 int DrawsPerIteration = 130000;
 PGraphics StatsText;
 float Jump = 1;
-int AllowRepeats = 1;
+int AllowRepeats = 0;
 
 
 void setup()
 {
   noLoop();
   background(#ffffff);
-  size(30000, 30000);
+  size (10000, 10000);
 
   surface.setTitle("Chaos Tringle");
   //Draw starting points.
@@ -26,12 +26,12 @@ void draw()
 {
   PVector CurrentPos = new PVector(width * .5, height * .5);
   PVector Vertecies[] = {
-    new PVector(width * .5, 0), 
+    //new PVector(width * .5, 0), 
     new PVector(0, height), 
     new PVector(width, height), 
-    //new PVector(0, 0), 
+    new PVector(0, 0), 
     //new PVector(width * .5, height * .5), 
-    //new PVector(width, 0), 
+    new PVector(width, 0), 
   };
   PVector LastVertex = new PVector();
   PVector ChosenVert = Vertecies[int(random(0, Vertecies.length))];
@@ -57,7 +57,7 @@ void draw()
   } else
   {
     noLoop();
-    save("Finished.png");
+    save("Finished.tga");
   }
 }
 
